@@ -12,7 +12,7 @@ const rl = readline.createInterface({
 function pigLatin(word){
 
   if(/[aiueo]/i.test(word[0])){
-    return word
+    return `${word}.`
   }else {
     var consonant = word.match(/[^aiueo]+/i).join()
     var restWord = word.replace(consonant,"")
