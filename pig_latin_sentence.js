@@ -22,7 +22,7 @@ rl.on('line', (line) => {
         } else {
           for (var j=0; j<word.length; j++) {
             if (word[j] === `a`  || word[j] === `i` || word[j] === `u` || word[j] === `e` || word[j] === `o`) {
-              result += word.substring(i, word.length);
+              result += word.substring(j, word.length);
               break;
             } else {
               consonant += word[i]
