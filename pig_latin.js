@@ -10,16 +10,20 @@ const rl = readline.createInterface({
 
 rl.question('Masukan kata: ', (answer) => {
   // TODO: Log the answer in a database
-  // let answer = answer.split(" ");
-  if (!(answer[0].toLowerCase() === 'a' || answer[0].toLowerCase() === 'e' || answer[0].toLowerCase() === 'i' || answer[0].toLowerCase() === 'u' || answer[0].toLowerCase() === 'o')) {
-    for(let i=0; i<answer.length; i++) {
-      if (answer[i].toLowerCase() === 'a' || answer[i].toLowerCase() === 'e' || answer[i].toLowerCase() === 'i' || answer[i].toLowerCase() === 'u' || answer[i].toLowerCase() === 'o') {
-        answer = answer.substr(i) + answer.substr(0, i) + "ay."
-        break;
+  let answerArr = answer.split(" ");
+  let answers = '';
+  for(let j=0; j<answerArr.length; j++) {
+    if (!(answer[j][0].toLowerCase() === 'a' || answer[j][0].toLowerCase() === 'e' || answer[j][0].toLowerCase() === 'i' || answer[j][0].toLowerCase() === 'u' || answer[0].toLowerCase() === 'o')) {
+      for(let i=0; i<answerArr[j].length; i++) {
+        if (answerArr[j][i].toLowerCase() === 'a' || answerArr[j][i].toLowerCase() === 'e' || answerArr[j][i].toLowerCase() === 'i' || answerArr[j][i].toLowerCase() === 'u' || answerArr[j][i].toLowerCase() === 'o') {
+          answers += answerArr[j].substr(i) + answerArr[j].substr(0, i) + "ay. "
+          break;
+        }
       }
     }
   }
-  console.log(`Thank you for your valuable feedback: \n${answer}`);
+
+  console.log(`Thank you for your valuable feedback: \n${answers}`);
 
   rl.close();
 });
