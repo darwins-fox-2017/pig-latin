@@ -44,6 +44,7 @@ function getIndexFirstVowel(line){
 rl.on('line', (line) => {
   var arrLine = line.split(' ')
   var res = []
+  var convertedCount = 0;
   for (var i = 0; i < arrLine.length; i++) {
     if (isVowel(arrLine[i][0])) {
       res.push(arrLine[i])
@@ -52,9 +53,11 @@ rl.on('line', (line) => {
       var firstWord = arrLine[i].substring(indexFirstVowel, arrLine[i].length)
       var consonantsBeforeFirstVowel = arrLine[i].substring(0, indexFirstVowel)
       res.push(firstWord.concat(consonantsBeforeFirstVowel) + 'ay.')
+      convertedCount += 1
     }
   }
-  console.log(res.join(''));
+  console.log(res.join(''))
+  console.log('converted count : ' + convertedCount);
 
   rl.prompt();
 }).on('close', () => {
