@@ -25,7 +25,7 @@ let convertSentencePigLatin = (sentence) => {
     for(let i=0;i<splitSpaceInput.length;i++) {
        result += (convertPigLatin(splitSpaceInput[i])+' '); 
     }
-    return result;
+    return result+'\n'+splitSpaceInput.length+' words converted';
 }
 
 const rl = readline.createInterface({
