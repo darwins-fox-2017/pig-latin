@@ -22,15 +22,15 @@ function cekPigAnak(word) {
 }
 
 function cekpig(word) {
-word=word.split(' ');
-var kalimatBaru='';
-var wordChange=0;
-for (var i = 0; i < word.length; i++) {
-if (!regexvol.test(word[i][0])) {
-  wordChange=wordChange+1;
-}
-kalimatBaru=kalimatBaru +' ' +cekPigAnak(word[i]) +'';
-}
+  word=word.split(' ');
+  var kalimatBaru='';
+  var wordChange=0;
+  for (var i = 0; i < word.length; i++) {
+    if (!regexvol.test(word[i][0])) {
+    wordChange=wordChange+1;
+    }
+    kalimatBaru=kalimatBaru +' ' +cekPigAnak(word[i]) +'';
+  }
 numkataDiganti=wordChange;
 return kalimatBaru
 }
@@ -44,16 +44,16 @@ const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: 'OHAI> '
+  prompt: 'input kalimat> '
 });
 
 rl.prompt();
 
 rl.on('line', (line) => {
-var sentence=line;
-var pigsentence=cekpig(sentence);
-console.log(pigsentence);
-console.log(numkataDiganti);
+  var sentence=line;
+  var pigsentence=cekpig(sentence);
+  console.log('pig latinya : ',pigsentence);
+  console.log('jumlah kata yang ditukar : ',numkataDiganti);
 
   rl.prompt();
 }).on('close', () => {
