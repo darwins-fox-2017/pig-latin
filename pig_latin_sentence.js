@@ -13,6 +13,8 @@ rl.prompt();
 rl.on('line', (line) => {
     let arrWord = line.split(' ');
     let sentence = [];
+    let countPig =  0;
+
     for (var i = 0; i < arrWord.length; i++) {
       let word = arrWord[i];
       let result = "";
@@ -21,7 +23,7 @@ rl.on('line', (line) => {
           result += word
         } else {
           for (var j=0; j<word.length; j++) {
-            if (word[j] === `a`  || word[j] === `i` || word[j] === `u` || word[j] === `e` || word[j] === `o`) {
+            if (word[j] === "a"  || word[j] === "i" || word[j] === "u" || word[j] === "e" || word[j] === "o") {
               result += word.substring(j, word.length);
               break;
             } else {
@@ -29,10 +31,16 @@ rl.on('line', (line) => {
             }
           }
         }
-        if (consonant.length >= 1) { sentence.push(result+consonant+"ay") } else { sentence.push(result) }
+        if (consonant.length >= 1) {
+          sentence.push(result+consonant+"ay")
+          countPig++
+        } else {
+          sentence.push(result)
+        }
     }
 
     console.log(sentence.join(" "))
+    console.log(countPig)
   rl.prompt();
 }).on('close', () => {
   console.log('Terima Kasih')
