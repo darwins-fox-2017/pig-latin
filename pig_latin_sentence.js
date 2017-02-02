@@ -40,9 +40,13 @@ rl.on('line', (line) => {
     }
 
     console.log(sentence.join(" "))
-    console.log(countPig)
+    console.log("Jumlah Pig Latin : " + countPig)
   rl.prompt();
 }).on('close', () => {
   console.log('Terima Kasih')
   process.exit(0)
 });
+
+// Input: Hello Khidmat
+// Output: ellohay idmatKhay
+// Output: Jumlah Pig Latin: 2
